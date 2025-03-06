@@ -1,0 +1,21 @@
+.flex-container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  line-height: 30px;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  height:20px;
+}
+
+.flex-item {
+  border: 1px solid black;
+  background-color: white;
+  flex: 1 0 auto;
+  width: 20px;
+}
