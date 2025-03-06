@@ -3,6 +3,7 @@ gridContainer.setAttribute("class", "flex-container");
 
 const resetBtn = document.getElementById("reset-btn");
 const newGrid = document.getElementById("change-grid");
+var opacityValue = 0;
 
 changeGrid();
 
@@ -25,7 +26,10 @@ function paintCell(cell){
   let r = Math.floor(Math.random() * 255);
   let g = Math.floor(Math.random() * 255);
   let b = Math.floor(Math.random() * 255);
-  cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  cell.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacityValue/10})`;
+  if (opacityValue < 10 ) {
+    opacityValue += 1;
+  };
   
 }
 
@@ -67,5 +71,6 @@ function reset() {
   for ( let i = 0; i < elementArr.length; i++) {
     elementArr[i].classList.remove("painted");
     elementArr[i].style.backgroundColor = "initial";
+    opacityValue = 0;
   }
 }
