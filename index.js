@@ -7,9 +7,10 @@ const newGrid = document.getElementById("change-grid");
 changeGrid();
 
 
-
 gridContainer.addEventListener("mouseover", (e) => {
+  
   e.target.classList.add("painted");
+  paintCell(e.target);
 });
 
 resetBtn.addEventListener("click", () => {
@@ -17,9 +18,16 @@ resetBtn.addEventListener("click", () => {
 });
 
 newGrid.addEventListener("click", () => {
-  let newSize = getNewSize();
-  changeGrid(newSize);
+  changeGrid(getNewSize());
 })
+
+function paintCell(cell){
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
+  cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  
+}
 
 function getNewSize() {
   let entry = 0;
@@ -58,5 +66,6 @@ function reset() {
   const elementArr = Array.from(document.getElementsByClassName("painted"));
   for ( let i = 0; i < elementArr.length; i++) {
     elementArr[i].classList.remove("painted");
+    elementArr[i].style.backgroundColor = "initial";
   }
 }
